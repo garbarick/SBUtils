@@ -9,8 +9,9 @@ public class Strings extends Util
         return instance;
     }
 
-    public String get(int id)
+    public String get(int id, Object ... args)
     {
-        return context.getResources().getString(id);
+        String str = context.getResources().getString(id);
+        return String.format(str, args);
     }
 }

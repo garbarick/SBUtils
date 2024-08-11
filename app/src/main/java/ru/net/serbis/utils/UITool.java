@@ -1,6 +1,7 @@
 package ru.net.serbis.utils;
 
 import android.app.*;
+import android.graphics.drawable.*;
 import android.os.*;
 import android.view.*;
 import android.widget.*;
@@ -131,6 +132,10 @@ public class UITool extends Util
 
     public void toast(TaskError error)
     {
+        if (error == null)
+        {
+            return;
+        }
         toast(error.getCode(), error.getMessage());
     }
 
@@ -176,5 +181,32 @@ public class UITool extends Util
             return defaultValue;
         }
         return value;
+    }
+
+    public void initAllButtons(ViewGroup view, View.OnClickListener tool)
+    {
+        for (int i = 0; i < view.getChildCount(); i ++)
+        {
+            View child = view.getChildAt(i);
+            if (child instanceof ViewGroup)
+            {
+                initAllButtons((ViewGroup) child, tool);
+            }
+            else if (child instanceof Button ||
+                     child instanceof ImageButton)
+            {
+                if (child.getId() > 0)
+                {
+                    child.setOnClickListener(tool);
+                }
+            }
+        }
+    }
+
+    public void setSandwitchView(Button button, int buttonId)
+    {
+        Drawable sandwitch = context.getResources().getDrawable(buttonId);
+        sandwitch.setBounds(28, 0, 92, 64);
+        button.setCompoundDrawables(sandwitch, null, null, null);
     }
 }
