@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.0"
 
     defaultConfig {
-        applicationId "ru.net.serbis.utils"
+        applicationId "ru.net.serbis.test.utils"
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 1
@@ -21,4 +21,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':lib')
 }

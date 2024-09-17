@@ -203,9 +203,9 @@ public class UITool extends Util
         }
     }
 
-    public void setSandwitchView(Button button, int buttonId)
+    public void setSandwitchView(Button button)
     {
-        Drawable sandwitch = context.getResources().getDrawable(buttonId);
+        Drawable sandwitch = context.getResources().getDrawable(R.drawable.sandwitch);
         sandwitch.setBounds(28, 0, 92, 64);
         button.setCompoundDrawables(sandwitch, null, null, null);
     }

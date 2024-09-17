@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app">SBUtils</string>
-    <string name="hello_app">Hello application</string>
+    <string name="hello_lib">Hello library</string>
 </resources>
     
