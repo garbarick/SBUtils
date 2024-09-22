@@ -2,5 +2,17 @@
 <resources>
     <string name="app">SBUtils</string>
     <string name="hello_lib">Hello library</string>
+    <string name="reset">Reset</string>
+    <string name="choose_files">Choose files</string>
+    <string name="chosen_files">Chosen files (%d)</string>
+    <string name="choose_dir">Choose directory</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="color_picker">Color picker</string>
+    <string name="edit_values">Edit values</string>
+    <string name="edit_values_">Edit values (%d)</string>
+    <string name="close">Close</string>
+    <string name="value">Value</string>
 </resources>
     

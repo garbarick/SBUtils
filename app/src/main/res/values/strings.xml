@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app">SBUtils</string>
-    <string name="hello_app">Hello application</string>
+    <string name="hello">Hello application</string>
+    <string name="params">Test params</string>
+    <string name="text">Text</string>
+    <string name="edit_text">Edit text</string>
+    <string name="check">Check</string>
+    <string name="list">List</string>
+    <string name="edit_num">Edit num</string>
+    <string name="seek">Seek</string>
+    <string name="view_date_time">View date time</string>
+    <string name="edit_date">Edit date</string>
+    <string name="color">Color</string>
+    <string name="file">File</string>
+    <string name="dir">Dir</string>
+    <string name="file_or_dir">File or dir</string>
+    <string name="files">Files</string>
+    <string name="error">Error</string>
+    <string name="strings">Strings</string>
 </resources>
     

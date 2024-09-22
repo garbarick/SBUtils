@@ -42,9 +42,9 @@ public class Preferences extends Util
         editor.commit();
     }
 
-    public String getString(String name, String defaultValue)
+    public String getString(String name, String value)
     {
-        return getPreferences().getString(name, defaultValue);
+        return getPreferences().getString(name, value);
     }
 
     public Set<String> getStringSet(String name)
@@ -52,9 +52,9 @@ public class Preferences extends Util
         return getStringSet(name, new TreeSet<String>());
     }
 
-    public Set<String> getStringSet(String name, Set<String> defaultValue)
+    public Set<String> getStringSet(String name, Set<String> value)
     {
-        return new TreeSet<String>(getPreferences().getStringSet(name, defaultValue));
+        return new TreeSet<String>(getPreferences().getStringSet(name, value));
     }
 
     public String get(String name)

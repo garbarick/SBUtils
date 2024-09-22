@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.0"
 
     defaultConfig {
-        applicationId "ru.net.serbis.test.utils"
+        applicationId "ru.net.serbis.testutils"
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 1
