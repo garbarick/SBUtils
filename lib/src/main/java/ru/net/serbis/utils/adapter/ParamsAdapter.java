@@ -21,6 +21,7 @@ public class ParamsAdapter
         for (Param param : params)
         {
             param.setContext(context);
+            param.setAdapter(this);
             this.params.put(position, param);
             views.put(position, getView(param, parent, position));
             position ++;

@@ -66,4 +66,26 @@ public class Preferences extends Util
     {
         return getPreferences().getAll().keySet();
     }
+    
+    public void setInt(String name, int value)
+    {
+        SharedPreferences.Editor editor = getPreferencesEditor();
+        editor.putInt(name, value);
+        editor.commit();
+    }
+
+    public int getInt(String name)
+    {
+        return getPreferences().getInt(name, 0);
+    }
+
+    public void setList(String name, List<String> values)
+    {
+        setStringSet(name, new HashSet<String>(values));
+    }
+
+    public List<String> getList(String name)
+    {
+        return new ArrayList<String>(getStringSet(name));
+    }
 }

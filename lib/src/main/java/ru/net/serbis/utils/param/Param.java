@@ -4,6 +4,7 @@ import android.app.*;
 import android.view.*;
 import android.widget.*;
 import ru.net.serbis.utils.*;
+import ru.net.serbis.utils.adapter.*;
 
 public abstract class Param<T, V extends View>
 {
@@ -12,6 +13,7 @@ public abstract class Param<T, V extends View>
     protected T value;
     protected Activity context;
     protected boolean stored;
+    protected ParamsAdapter adapter;
 
     private Param(int nameId, String name, T value, boolean stored)
     {
@@ -107,5 +109,10 @@ public abstract class Param<T, V extends View>
     public void setContext(Activity context)
     {
         this.context = context;
+    }
+
+    public void setAdapter(ParamsAdapter adapter)
+    {
+        this.adapter = adapter;
     }
 }
