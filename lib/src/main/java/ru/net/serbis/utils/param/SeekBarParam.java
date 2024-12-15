@@ -1,5 +1,6 @@
 package ru.net.serbis.utils.param;
 
+import android.os.*;
 import android.view.*;
 import android.widget.*;
 import ru.net.serbis.utils.*;
@@ -28,7 +29,10 @@ public class SeekBarParam extends NumberParam<SeekBar>
     public void initViewValue(View parent)
     {
         SeekBar view = getViewValue(parent);
-        view.setMin(min);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1)
+        {
+            view.setMin(min);
+        }
         view.setMax(max);
         setValue(view, getValue());
 
@@ -50,6 +54,11 @@ public class SeekBarParam extends NumberParam<SeekBar>
                 @Override
                 public void onProgressChanged(SeekBar seek, int progress, boolean byUser)
                 {
+                    if(progress < min)
+                    {
+                        progress = min;
+                        seek.setProgress(progress);
+                    }
                     if (byUser)
                     {
                         viewValue.setText(String.valueOf(progress));
