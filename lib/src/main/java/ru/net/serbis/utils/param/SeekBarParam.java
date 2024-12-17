@@ -29,7 +29,7 @@ public class SeekBarParam extends NumberParam<SeekBar>
     public void initViewValue(View parent)
     {
         SeekBar view = getViewValue(parent);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1)
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
         {
             view.setMin(min);
         }
