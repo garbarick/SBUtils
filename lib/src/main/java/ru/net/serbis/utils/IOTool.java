@@ -113,6 +113,8 @@ public class IOTool
         OutputStreamWriter os = null;
         try
         {
+            file.getParentFile().mkdirs();
+            file.createNewFile();
             os = new OutputStreamWriter(new FileOutputStream(file));
             os.write(content);
         }
