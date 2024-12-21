@@ -114,7 +114,6 @@ public class IOTool
         try
         {
             file.getParentFile().mkdirs();
-            file.createNewFile();
             os = new OutputStreamWriter(new FileOutputStream(file));
             os.write(content);
         }
