@@ -14,5 +14,6 @@
     <string name="edit_values_">Edit values (%d)</string>
     <string name="close">Close</string>
     <string name="value">Value</string>
+    <string name="info">Buttons info</string>
 </resources>
     

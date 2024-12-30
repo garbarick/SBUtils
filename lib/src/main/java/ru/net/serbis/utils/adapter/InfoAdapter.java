@@ -1,0 +1,42 @@
+package ru.net.serbis.utils.adapter;
+
+import android.content.*;
+import android.view.*;
+import android.widget.*;
+import ru.net.serbis.utils.*;
+import ru.net.serbis.utils.sort.*;
+
+public class InfoAdapter extends ArrayAdapter<ImageButton>
+{
+    public InfoAdapter(Context context, int layoutId)
+    {
+        super(context, android.R.layout.simple_list_item_1);
+        initItems(context, layoutId);
+    }
+
+    private void initItems(Context context, int layoutId)
+    {   
+        ViewGroup group = (ViewGroup) LayoutInflater.from(context).inflate(layoutId, null, false);
+        for (int i = 0; i < group.getChildCount(); i ++)
+        {
+            View child = group.getChildAt(i);
+            if (child instanceof ImageButton)
+            {
+                add((ImageButton) child);
+            }
+        }
+        sort(new ImageButtonSorter());
+    }
+
+    @Override
+    public View getView(int position, View view, ViewGroup parent)
+    {
+        ImageButton button = getItem(position);
+        view = LayoutInflater.from(getContext()).inflate(R.layout.resource_img, parent, false);
+        TextView text = UITool.get().findView(view, R.id.name);
+        text.setText(button.getContentDescription());
+        ImageView img = UITool.get().findView(view, R.id.img);
+        img.setBackground(button.getDrawable());
+        return view;
+    }
+}
