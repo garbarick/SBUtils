@@ -35,19 +35,17 @@ public class SeekBarParam extends NumberParam<SeekBar>
         }
         view.setMax(max);
         setValue(view, getValue());
-
-        if (showViewValue)
-        {
-            initViewValue(parent, view);
-            return;
-        }
+        initSeekBar(parent, view);
     }
 
-    private void initViewValue(View parent, SeekBar view)
+    private void initSeekBar(View parent, SeekBar view)
     {
         final TextView viewValue = UITool.get().findView(parent, R.id.view_value);
-        viewValue.setVisibility(View.VISIBLE);
-        viewValue.setText(getValue().toString());
+        if (showViewValue)
+        {
+            viewValue.setVisibility(View.VISIBLE);
+            viewValue.setText(getValue().toString());
+        }
         view.setOnSeekBarChangeListener(
             new SeekBar.OnSeekBarChangeListener()
             {
@@ -59,7 +57,7 @@ public class SeekBarParam extends NumberParam<SeekBar>
                         progress = min;
                         seek.setProgress(progress);
                     }
-                    if (byUser)
+                    if (byUser && showViewValue)
                     {
                         viewValue.setText(String.valueOf(progress));
                     }
