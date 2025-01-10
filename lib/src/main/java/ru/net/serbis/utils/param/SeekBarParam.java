@@ -1,6 +1,5 @@
 package ru.net.serbis.utils.param;
 
-import android.os.*;
 import android.view.*;
 import android.widget.*;
 import ru.net.serbis.utils.*;
@@ -29,37 +28,28 @@ public class SeekBarParam extends NumberParam<SeekBar>
     public void initViewValue(View parent)
     {
         SeekBar view = getViewValue(parent);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
-        {
-            view.setMin(min);
-        }
-        view.setMax(max);
+        view.setMax(100);
         setValue(view, getValue());
-        initSeekBar(parent, view);
-    }
-
-    private void initSeekBar(View parent, SeekBar view)
-    {
-        final TextView viewValue = UITool.get().findView(parent, R.id.view_value);
         if (showViewValue)
         {
-            viewValue.setVisibility(View.VISIBLE);
-            viewValue.setText(getValue().toString());
+            initShowViewValue(parent, view);
         }
+    }
+
+    private void initShowViewValue(View parent, SeekBar view)
+    {
+        final TextView viewValue = UITool.get().findView(parent, R.id.view_value);
+        viewValue.setVisibility(View.VISIBLE);
+        viewValue.setText(getValue().toString());
         view.setOnSeekBarChangeListener(
             new SeekBar.OnSeekBarChangeListener()
             {
                 @Override
                 public void onProgressChanged(SeekBar seek, int progress, boolean byUser)
                 {
-                    if(progress < min)
+                    if (byUser)
                     {
-                        progress = min;
-                        seek.setProgress(progress);
-                    }
-                    if (byUser && showViewValue)
-                    {
-                        viewValue.setText(String.valueOf(progress));
+                        viewValue.setText(fromProgress(progress).toString());
                     }
                 }
 
@@ -79,12 +69,22 @@ public class SeekBarParam extends NumberParam<SeekBar>
     @Override
     public void setValue(SeekBar view, Integer value)
     {
-        view.setProgress(value);
+        view.setProgress(toProgress(value));
     }
 
     @Override
     public Integer getValue(SeekBar view)
     {
-        return view.getProgress();
+        return fromProgress(view.getProgress());
+    }
+
+    public Integer toProgress(Integer value)
+    {
+        return (value - min) * 100 / (max - min);
+    }
+
+    public Integer fromProgress(Integer value)
+    {
+        return value * (max - min) / 100 + min;
     }
 }

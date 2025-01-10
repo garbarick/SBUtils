@@ -9,6 +9,7 @@
     <string name="list">List</string>
     <string name="edit_num">Edit num</string>
     <string name="seek">Seek</string>
+    <string name="seek_between">Seek between</string>
     <string name="view_date_time">View date time</string>
     <string name="edit_date">Edit date</string>
     <string name="color">Color</string>

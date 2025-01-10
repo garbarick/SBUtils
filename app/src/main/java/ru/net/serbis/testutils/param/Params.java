@@ -22,6 +22,7 @@ public interface Params
     Param LIST = new ListParam(R.string.list, LIST_VALUES[0], LIST_VALUES);
     Param EDIT_NUM = new EditNumberParam(R.string.edit_num, 123);
     Param SEEK = new SeekBarParam(R.string.seek, 0, 100, 33, true);
+    Param SEEK_BETWEEN = new SeekBarParam(R.string.seek_between, 40, 180, 60, true);
     Param VIEW_DATE_TIME = new DateTimeViewParam(R.string.view_date_time, new Date());
     Param EDIT_DATE = new EditDateParam(R.string.edit_date, new Date());
     Param COLOR = new ColorParam(R.string.color, Color.GRAY);
@@ -38,6 +39,7 @@ public interface Params
         LIST,
         EDIT_NUM,
         SEEK,
+        SEEK_BETWEEN,
         VIEW_DATE_TIME,
         EDIT_DATE,
         COLOR,
